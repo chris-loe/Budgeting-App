@@ -1,0 +1,37 @@
+{% extends 'budget/base.html '%}
+
+{% block body_block %}
+
+  <div class = "container">
+
+
+
+  <h1>My Projects</h1>
+  <hr>
+
+    <div class="row">
+      {% for project in project_list %}
+          <div class="col s12 md6 xl3">
+            <div class="card-panel">
+                  <h6>{{ project.name }}</h6>
+                  <a href="{% url 'project_detail' project.slug %}" class="btn"">Visit</a>
+            </div>
+          </div>
+          {% endfor %}
+      </div>
+
+
+      <div class = "noproject-wrapper center">
+        <h3 class = "grey-text">MANAGE YOUR FINANCES NOW</h3>
+        <a class = "btn-large grey" href="{% url 'add' %}">
+        <!-- Materialize tags -->
+        <i class = "material-icons white-text left">add_circles</i>
+        <span class = "bold">Add Project Budget</span>
+        </a>
+      </div>
+
+  </div>
+
+
+
+{% endblock %}
